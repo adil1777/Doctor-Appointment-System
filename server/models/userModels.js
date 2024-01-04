@@ -21,11 +21,11 @@ const userSchema = new mongoose.Schema({
         type: Boolean,
         default:false,
     },
-    notification :{
+    notification:{
         type:Array,
         default: [],
     },
-    seeNotification :{
+    seeNotification:{
         type:Array,
         default: [],
     },

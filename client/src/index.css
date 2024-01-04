@@ -1,0 +1,22 @@
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/* ====================== loader =========  */
+.spinner{
+  height:100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color:white;
+  background-color: rgba(0, 0, 0, 0.413);
+  z-index: 9998;
+}
+
+/* =============Apply Doctor====== */
+.form-btn{
+  width:200px !important;
+  margin-top: 30px !important;
+}

@@ -37,13 +37,13 @@ export const adminMenu = [
   {
     id:2,
     name:"Doctors",
-    path:"/doctors",
+    path:"/admin/doctors",
     icon:"fa-solid fa-user-doctor",
   },
   {
     id:3,
     name:"Users",
-    path:"/users",
+    path:"/admin/users",
     icon:"fa-solid fa-user",
   },
   {

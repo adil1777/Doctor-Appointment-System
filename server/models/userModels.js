@@ -25,12 +25,12 @@ const userSchema = new mongoose.Schema({
         type:Array,
         default: [],
     },
-    seeNotification:{
+    seenNotification:{
         type:Array,
         default: [],
     },
 
-});
+} ,{ timestamps: true });
 const userModel =mongoose.model("user" , userSchema);
 
 module.exports = userModel;

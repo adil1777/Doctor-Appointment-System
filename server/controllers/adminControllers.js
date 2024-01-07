@@ -43,5 +43,36 @@ const getAllDoctorController =async(req,res)=>{
 
 };
 
+ //Chane Account Status Controller 
+const changeAccountStatusController =async(req,res)=>{
+  try{
+    const {doctorId,status} =req.body;
+    const doctor = await doctorModel.findByIdAndUpdate(doctorId,{status});
+    
 
-module.exports= {getAllUserController,getAllDoctorController};
+    const user = await userModel.findOne({_id:doctor.userId})
+    const notification = user.notification;
+    notification.push({
+        type:"doctor-account-request-updated",
+        message:`Your doctor account request has ${status}  `,
+        onClickPath:'/notification'
+    });
+    
+    (status === "approved" )? (user.isDoctor=true) : (user.isDoctor=false)
+    await user.save();
+    res.status(201).send({
+        success:true,
+        message:'Account Status Updated',
+        data: doctor,
+    });
+
+  }catch(error){
+    console.log(error);
+    res.status(500).send({
+        success:false,
+        message:"Error in Account Status",
+        error
+    })
+  }
+};
+module.exports= {getAllUserController,getAllDoctorController,changeAccountStatusController};

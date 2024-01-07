@@ -18,8 +18,35 @@ const Layout = ({ children }) => {
     navigate("/login");
   };
 
-  //rendering Menu List
-  const SidebarMenu = user?.isAdmin ? adminMenu : userMenu;
+  //=========================Doctor Menu==================
+  const doctorMenu = [
+    {
+      id: 1,
+      name: 'Home',
+      path: '/',
+      icon: 'fa-sharp fa-solid fa-house',
+    },
+    {
+      id: 2,
+      name: 'Appointment',
+      path: '/appointment',
+      icon: 'fa-sharp fa-solid fa-list',
+    },
+    {
+      id: 3,
+      name: 'Profile',
+      path: `/doctor/profile/${user?._id}`,
+      icon: 'fa-solid fa-user',
+    },
+  ];
+//==============================Doctor Menu====================
+
+  //=========== rendering Menu List===============
+  const SidebarMenu = user?.isAdmin
+    ? adminMenu
+    : user?.isDoctor
+    ? doctorMenu
+    : userMenu;
 
   return (
     <>
@@ -53,7 +80,7 @@ const Layout = ({ children }) => {
           </div>
           <div className="content">
             <div className="header">
-              <div className="header-content" style={{cursor:"pointer"}}>
+              <div className="header-content" style={{ cursor: "pointer" }}>
                 <Badge
                   count={user?.notification.length}
                   onClick={() => navigate("/notification")}

@@ -1,3 +1,5 @@
+
+//================= User Menu ===================
 export const userMenu = [
   {
     id:1,
@@ -26,7 +28,7 @@ export const userMenu = [
 
 ]
 
-//Admin Menu
+//=========================== Admin Menu==================
 export const adminMenu = [
   {
     id:1,
@@ -54,3 +56,4 @@ export const adminMenu = [
   },
 
 ]
+

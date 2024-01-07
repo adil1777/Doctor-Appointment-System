@@ -3,49 +3,54 @@ import Layout from "./Layout";
 import { Form, Col, Input, Row, TimePicker, message } from "antd";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import {showLoading,hideLoading} from '../redux/feature/alertSlice';
-import axios from 'axios';
-
+import { showLoading, hideLoading } from "../redux/feature/alertSlice";
+import axios from "axios";
+import moment from "moment";
 const ApplyDoctor = () => {
-  const {user} = useSelector((state)=>state.user);
+  const { user } = useSelector((state) => state.user);
 
-     const dispatch = useDispatch();
-     const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   // handle submit form
-  const handleFinish = async(values) => {
-    try{
-       dispatch(showLoading());
-       const res= await axios.post('http://localhost:8080/api/v1/user/apply-doctor',
-       {...values, userId:user._id},
-       {
-        headers: {
-          Authorization: `Bearer ${localStorage.getItem('token')}`,
+  const handleFinish = async (values) => {
+    try {
+      dispatch(showLoading());
+      const res = await axios.post(
+        "http://localhost:8080/api/v1/user/apply-doctor",
+        {
+          ...values,
+          userId: user._id,
+          timings: [
+            moment(values.timings[0]).format("HH:mm"),
+            moment(values.timings[1]).format("HH:mm"),
+          ],
         },
-       });
-       dispatch(hideLoading());
-       if(res.data.success){
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
+        }
+      );
+      dispatch(hideLoading());
+      if (res.data.success) {
         message.success(res.data.message);
-        navigate('/');
-       }else{
+        navigate("/");
+      } else {
         message.error(res.data.message);
-       }
-      
-
-    }catch(error){
+      }
+    } catch (error) {
       dispatch(hideLoading());
       console.log(error);
-      message.error('Something went wrong while apply for doctor')
+      message.error("Something went wrong while apply for doctor");
     }
-     
   };
-
 
   return (
     <Layout>
-      <h1 className="text-center"> ApplyDoctor</h1>
+      <h1 className="text-center m-3"> ApplyDoctor</h1>
       <Form layout="vertical" onFinish={handleFinish} className="m-3">
-        <h4 className="">Personal Detals:</h4>
+        <h4 className="">Personal Details:</h4>
         <Row gutter={20}>
           <Col xs={24} md={24} lg={8}>
             <Form.Item
@@ -145,9 +150,9 @@ const ApplyDoctor = () => {
           </Col>
           <Col xs={24} md={24} lg={8}></Col>
           <Col xs={24} md={24} lg={8}>
-              <button className="btn btn-primary form-btn" type="submit">
-                Submit
-              </button>
+            <button className="btn btn-primary form-btn" type="submit">
+              Submit
+            </button>
           </Col>
         </Row>
       </Form>

@@ -21,7 +21,7 @@ const BookingPage = () => {
   const getUserData = async () => {
     try {
       const res = await axios.post(
-        "http://localhost:8080/api/v1/doctor/getDoctorById",
+        "/api/v1/doctor/getDoctorById",
         { doctorId: params.doctorId },
         {
           headers: {
@@ -44,7 +44,7 @@ const BookingPage = () => {
       }
       dispatch(showLoading());
       const res = await axios.post(
-        "http://localhost:8080/api/v1/user//booking-availability",
+        "/api/v1/user//booking-availability",
         { doctorId: params.doctorId, date, time },
         {
           headers: {
@@ -74,7 +74,7 @@ const BookingPage = () => {
       }
       dispatch(showLoading());
       const res = await axios.post(
-        "http://localhost:8080/api/v1/user/book-appointment",
+        "/api/v1/user/book-appointment",
         {
           doctorId: params.doctorId,
           userId: user._id,

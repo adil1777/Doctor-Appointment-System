@@ -30,7 +30,7 @@ const DoctorAppointments = () => {
   const handleStatus = async (record, status) => {
     try {
       const res = await axios.post(
-        "http://localhost:8080/api/v1/doctor/update-appointments-status",
+        "/api/v1/doctor/update-appointments-status",
         { appointmentsId: record._id, status },
         {
           headers: {

@@ -221,7 +221,7 @@ const loginController =async(req,res)=> {
         user.notification.push({
             type:'New-appointment-request',
             message:`A new Appointment Request from ${req.body.userInfo.name}`,
-            onCLickPath: "/appointment",
+            onCLickPath:  "/user/appointments",
         });
         await user.save();
         res.status(200).send({

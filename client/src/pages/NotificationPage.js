@@ -78,11 +78,13 @@ const NotificationPage = () => {
           {user?.notification.map((notificationMsg) => (
             <div
               className="card"
-              onClick={() => navigate(notificationMsg.data.onClickPath)}
-              key={notificationMsg._id}
               style={{ cursor: "pointer" }}
+              key={notificationMsg._id}
+              onClick={() => navigate(notificationMsg.onClickPath)}
             >
-              <div className="card-text">{notificationMsg.message}</div>
+              <div className="card-text">
+              {notificationMsg.message}
+              </div>
             </div>
           ))}
         </Tabs.TabPane>
@@ -100,10 +102,12 @@ const NotificationPage = () => {
             <div
               className="card"
               key={notificationMsg._id}
-              onClick={() => navigate(notificationMsg.data.onClickPath)}
               style={{ cursor: "pointer" }}
+              onClick={() => navigate(notificationMsg.onClickPath)}
             >
-              <div className="card-text">{notificationMsg.message}</div>
+              <div className="card-text">
+              {notificationMsg.message}
+              </div>
             </div>
           ))}
         </Tabs.TabPane>

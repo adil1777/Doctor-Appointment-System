@@ -221,7 +221,7 @@ const loginController =async(req,res)=> {
         user.notification.push({
             type:'New-appointment-request',
             message:`A new Appointment Request from ${req.body.userInfo.name}`,
-            onClickPath : "/user/appointments",
+            onCLickPath: "/appointment",
         });
         await user.save();
         res.status(200).send({
@@ -276,6 +276,28 @@ const loginController =async(req,res)=> {
         });
       }
     };
+
+    //UserAppointmentsListCtrl
+    const userAppointmentsListCtrl =async(req,res)=>{
+       try{
+        const appointments = await appointmentModel.find({
+            userId:req.body.userId,
+        });
+        res.status(200).send({
+            success:true,
+            message:'Users Appointment List Fetch  Successfully',
+            data:appointments
+        });
+
+       }catch(error){
+        console.log(error);
+        res.status(500).send({
+            success:false,
+            message:'Error in Fetching User Appointment List',
+            error,
+        })
+       }
+    }
     
 module.exports ={loginController ,
      registerController ,
@@ -286,5 +308,6 @@ module.exports ={loginController ,
      getAllDoctorsController,
      bookAppointmentController,
      bookingAvailabilityController,
+     userAppointmentsListCtrl,
     };
 

@@ -25,7 +25,7 @@ app.use('/api/v1/admin',require('./routes/adminRoutes'));
 app.use('/api/v1/doctor',require('./routes/doctorRoutes'));
 
 //PORT
-const PORT =process.env.PORT || 8000;
+const PORT =process.env.PORT || 8000;   
 
 //PORT Listen
 app.listen(PORT,()=>{

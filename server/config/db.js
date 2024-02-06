@@ -3,13 +3,12 @@ const mongoose = require('mongoose');
 const connectDB = async () => {
     try {
         await mongoose.connect(process.env.MONGODB_URL, {
-            useNewUrlParser: true,
-            useUnifiedTopology: true,
-            retryWrites: true, // Ensure this option is included
+            retryWrites: true,
+            w: 'majority',
         });
-        console.log(`Mongodb connected ${mongoose.connection.host}`.bgGreen.white);
+        console.log(`Mongodb connected ${mongoose.connection.host}`);
     } catch (error) {
-        console.log(`MongoDb Server Issue ${error}`.bgRed.white);
+        console.error(`MongoDb Server Issue ${error}`);
     }
 };
 

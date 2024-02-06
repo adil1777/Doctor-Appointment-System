@@ -5,6 +5,11 @@ const doctorModel = require("../models/doctorModel");
 const appointmentModel = require("../models/appointmentModel");
 const moment = require('moment');
 
+const dotenv = require('dotenv');
+
+// dotenv config
+dotenv.config();
+
 
 //Register Controller
 const registerController =async(req,res)=> {

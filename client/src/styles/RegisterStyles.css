@@ -3,4 +3,19 @@
     align-items: center;
     justify-content: center;
     height:100vh;
+    position: relative;
 }
+.form-banner img{
+    height:100%;
+    width: 100%;
+    display: block;
+   }
+   .wel {
+    position: absolute;
+    top: 20%;
+    left: 28%;
+    transform: translate(-50%, -50%);
+    font-size: 2rem;
+    color: rgb(49, 208, 247); 
+    z-index: 1; 
+  }

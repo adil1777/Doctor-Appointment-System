@@ -54,7 +54,7 @@ const Layout = ({ children }) => {
         <div className="layout">
           <div className="sidebar">
             <div className="logo">
-              <h6 className="doc">DOC APP</h6>
+              <h6 className="doc">DocCare</h6>
               <hr />
             </div>
             <div className="menu">

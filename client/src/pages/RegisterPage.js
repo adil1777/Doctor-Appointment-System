@@ -16,7 +16,7 @@ const RegisterPage = () => {
   const onFinishHandler = async(values) => {
     try{
          dispatch(showLoading());
-        const res = await axios.post("https://doccare-backend.onrender.com/api/v1/user/register", values);
+        const res = await axios.post("/api/v1/user/register", values);
         dispatch(hideLoading());
         if(res.data.success){
             message.success("Register Successfully");

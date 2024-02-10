@@ -14,13 +14,13 @@ const LoginPage = () => {
   const onFinishHandler = async(values) => {
     try{
         dispatch(showLoading());
-        const res= await axios.post("https://doccare-backend.onrender.com/api/v1/user/login" , values);
+        const res= await axios.post("/api/v1/user/login" , values);
         window.location.reload();
         dispatch(hideLoading());
         if(res.data.success){
             localStorage.setItem("token" , res.data.token);
             message.success('Login Successfully');
-            navigate('#/');
+            navigate('/');
         }
         else{
             message.error(res.data.message);

@@ -1,5 +1,5 @@
 import "./App.css";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, HashRouter } from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
@@ -20,7 +20,7 @@ function App() {
   const { loading } = useSelector((state) => state.alerts);
   return (
     <>
-      <BrowserRouter>
+      <HashRouter>
         {loading ? (
           <Spinner />
         ) : (
@@ -106,7 +106,7 @@ function App() {
               }
             />
              <Route
-              path="/"
+              path="/home"
               element={
                 <ProtectedRoute>
                   <HomePage />
@@ -115,7 +115,7 @@ function App() {
             />
           </Routes>
         )}
-      </BrowserRouter>
+      </HashRouter>
     </>
   );
 }

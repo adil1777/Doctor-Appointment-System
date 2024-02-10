@@ -1,5 +1,5 @@
 import "./App.css";
-import { Routes, Route, HashRouter } from "react-router-dom";
+import { BrowserRouter, Routes, Route, HashRouter } from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
@@ -26,14 +26,6 @@ function App() {
         ) : (
           <Routes>
             <Route
-              path="/#"
-              element={
-                <ProtectedRoute>
-                  <HomePage />
-                </ProtectedRoute>
-              }
-            />
-            <Route
               path="/apply-doctor"
               element={
                 <ProtectedRoute>
@@ -41,7 +33,7 @@ function App() {
                 </ProtectedRoute>
               }
             />
-            <Route
+             <Route
               path="/admin/users"
               element={
                 <ProtectedRoute>
@@ -57,23 +49,23 @@ function App() {
                 </ProtectedRoute>
               }
             />
-            <Route
+              <Route
               path="/doctor/profile/:id"
               element={
                 <ProtectedRoute>
-                  <Profile />
+                  <Profile/>
                 </ProtectedRoute>
               }
             />
-            <Route
+             <Route
               path="/doctor/book-appointment/:doctorId"
               element={
                 <ProtectedRoute>
-                  <BookingPage />
+                  <BookingPage/>
                 </ProtectedRoute>
               }
             />
-            <Route
+             <Route
               path="/notification"
               element={
                 <ProtectedRoute>
@@ -97,7 +89,7 @@ function App() {
                 </PublicRoute>
               }
             />
-            <Route
+             <Route
               path="/appointment"
               element={
                 <ProtectedRoute>
@@ -105,11 +97,19 @@ function App() {
                 </ProtectedRoute>
               }
             />
-            <Route
+             <Route
               path="/doctor-appointments"
               element={
                 <ProtectedRoute>
                   <DoctorAppointments />
+                </ProtectedRoute>
+              }
+            />
+             <Route
+              path="/"
+              element={
+                <ProtectedRoute>
+                  <HomePage />
                 </ProtectedRoute>
               }
             />

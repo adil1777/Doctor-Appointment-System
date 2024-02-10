@@ -21,7 +21,7 @@ const BookingPage = () => {
   const getUserData = async () => {
     try {
       const res = await axios.post(
-        "/api/v1/doctor/getDoctorById",
+        "https://doccare-backend.onrender.com/api/v1/doctor/getDoctorById",
         { doctorId: params.doctorId },
         {
           headers: {
@@ -44,7 +44,7 @@ const BookingPage = () => {
       }
       dispatch(showLoading());
       const res = await axios.post(
-        "/api/v1/user//booking-availability",
+        "https://doccare-backend.onrender.com/api/v1/user//booking-availability",
         { doctorId: params.doctorId, date, time },
         {
           headers: {
@@ -74,7 +74,7 @@ const BookingPage = () => {
       }
       dispatch(showLoading());
       const res = await axios.post(
-        "/api/v1/user/book-appointment",
+        "https://doccare-backend.onrender.com/api/v1/user/book-appointment",
         {
           doctorId: params.doctorId,
           userId: user._id,

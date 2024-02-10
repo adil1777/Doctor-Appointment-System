@@ -9,7 +9,7 @@ const Users = () => {
     //Get  All User Details
     const getAllUsers = async () => {
         try {
-            const res = await axios.get("/api/v1/admin/getAllUsers", {
+            const res = await axios.get("https://doccare-backend.onrender.com/api/v1/admin/getAllUsers", {
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem('token')}`,
                 }

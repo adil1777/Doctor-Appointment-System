@@ -16,7 +16,7 @@ const NotificationPage = () => {
     try {
       dispatch(showLoading());
       const res = await axios.post(
-        "/api/v1/user/get-all-notification",
+        "https://doccare-backend.onrender.com/api/v1/user/get-all-notification",
         { userId: user._id },
         {
           headers: {
@@ -42,7 +42,7 @@ const NotificationPage = () => {
     try {
       dispatch(showLoading());
       const res = await axios.post(
-        "/api/v1/user/delete-all-notification",
+        "https://doccare-backend.onrender.com/api/v1/user/delete-all-notification",
         {
           userId: user._id,
         },

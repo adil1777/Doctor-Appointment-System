@@ -9,7 +9,7 @@ const Doctors = () => {
   const getAllDoctors = async () => {
     try {
       const res = await axios.get(
-        "/api/v1/admin/getAllDoctors",
+        "https://doccare-backend.onrender.com/api/v1/admin/getAllDoctors",
         {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -29,7 +29,7 @@ const Doctors = () => {
  // handle Account 
   const handleAccountStatus = async(record , status)=>{
     try{
-      const res = await axios.post('/api/v1/admin/changeAccountStatus',
+      const res = await axios.post('https://doccare-backend.onrender.com/api/v1/admin/changeAccountStatus',
       {
         doctorId :record._id , userId:record.userId, status:status
       },

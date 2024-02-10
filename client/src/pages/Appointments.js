@@ -9,7 +9,7 @@ const Appointments = () => {
 
   const getAppointments = async () => {
     try {
-      const res = await axios.get("/api/v1/user/user-appointments-list", {
+      const res = await axios.get("https://doccare-backend.onrender.com/api/v1/user/user-appointments-list", {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },

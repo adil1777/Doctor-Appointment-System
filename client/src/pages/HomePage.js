@@ -10,7 +10,7 @@ const HomePage = () => {
   //Login User Data
   const getUserData = async()=>{
     try{
-      const res = await axios.get("/api/v1/user/getAllDoctors",
+      const res = await axios.get("https://doccare-backend.onrender.com/api/v1/user/getAllDoctors",
      
       {
         headers:{

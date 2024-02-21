@@ -36,8 +36,8 @@ const LoginPage = () => {
     <>
       <div className="row g-0">
         <div className="col-md-8 form-banner">
-        <span className="wel">Welcome to DocCare</span>
-          <img src="./banner.png" alt="loginImage" />
+        <span className="wel">✧˚·̩̩̥͙˚̩̥̩̥·̩̩̥͙✧·̩̩̥͙˚̩̥̩̥˚·̩̩̥͙✧ 𝒲ℯ𝓁𝒸ℴ𝓂ℯ 𝓉ℴ 𝒹ℴ𝒸𝒞𝒶𝓇ℯ ✧˚·̩̩̥͙˚̩̥̩̥·̩̩̥͙✧·̩̩̥͙˚̩̥̩̥˚·̩̩̥͙✧</span>
+          <img src="./banner.jpg" alt="loginImage" />
         </div>
         <div className="col-md-4 form-container">
             <Form

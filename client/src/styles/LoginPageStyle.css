@@ -12,10 +12,10 @@
    }
    .wel {
     position: absolute;
-    top: 20%;
-    left: 28%;
+    top: 10%;
+    left: 33%;
     transform: translate(-50%, -50%);
-    font-size: 2rem;
+    font-size: 2.5rem;
     color: rgb(49, 208, 247); 
     z-index: 1; 
   }
